@@ -1,0 +1,93 @@
+﻿@model udemy_deneme1.EmployeeListViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RazorDemo</title>
+</head>
+<body>
+    <p>
+        <a asp-action="Create"></a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Employee)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Surname</td>
+                    <td>@item.Number</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br />
+    hello I am serhat and I am @@home
+    <br />
+    <p>@DateTime.Now</p>
+    @{
+        var date = DateTime.Now - TimeSpan.FromDays(3);
+    }
+    <p>3 days ago was @date</p>
+    @{
+        var number = 20;
+    }
+    <p>@number</p>
+
+    @if (number < 10)
+    {
+        <p>The number is less than 10 </p>
+    }
+
+    else if (number == 10)
+    {
+        <p>The number is equal to 10 </p>
+    }
+    else
+    {
+        <p>The number is greater than 10 </p>
+    }
+    @for (int i = 0; i < Model.Employee.Count; i++)
+     {
+        <br /><b>@Model.Employee[i].Name</b> 
+     }
+    @try
+    {
+
+    }
+    catch (ArgumentNullException ex)
+    {
+
+        throw;
+    }
+    catch (Exception e)
+    {
+        throw;
+    }
+    finally
+    {
+
+    }
+
+    @using (Html.BeginForm())
+    {
+         <input type="text", id="", name="" />
+         <button type="submit"></button>
+    }
+    </body>
+</html>
